@@ -1,0 +1,48 @@
+{
+  "name": "joblist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "job",
+    "list"
+  ],
+  "author": "Jesús Barraza <barrazajesusarmando@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "bcrypt": "^2.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "browserify": "^16.2.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-react-views": "^0.9.0",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.2.1",
+    "jwt-simple": "^0.5.1",
+    "material-ui": "^0.20.0",
+    "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-materialize": "^2.2.0",
+    "react-modal": "^3.4.2",
+    "react-scripts": "^1.1.4",
+    "reflux": "^6.4.1",
+    "sequelize": "^4.37.6"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "less": "^3.0.2",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.21.0"
+  }
+}
