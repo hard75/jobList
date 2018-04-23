@@ -6,6 +6,6 @@ node server.js
 
 ### Routes ###
 
-localhost:8080/signin //login
+localhost:8080/signin
 
 localhost:8080/signup
