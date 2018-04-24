@@ -22,17 +22,10 @@ module.exports = function(sequelize, Sequelize) {
             password: {
                 type: Sequelize.STRING,
                 allowNull: false
-            },
-    
-        },{
-            classMethods: {
-              associate: function(models) {
-                User.belongsTo(models.Job);
-              }
             }
-          }
+        }
     );
- 
+    
     return User;
  
 }

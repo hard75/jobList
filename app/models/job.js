@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-
+    const User = require('./user.js')(sequelize, Sequelize);
     const Job = sequelize.define('job', {
 
             id: {
@@ -20,11 +20,12 @@ module.exports = function(sequelize, Sequelize) {
                 type: Sequelize.ENUM('high', 'medium', 'low'),
                 defaultValue: 'low'
             },
-        }, {
-            classMethods: {
-              associate: function(models) {
-                Job.belongsTo(models.User);
-              }
+            user_id : {
+                type: Sequelize.INTEGER,
+                reference :{
+                    model : 'user',
+                    key : 'id'
+                }
             }
         }
     );

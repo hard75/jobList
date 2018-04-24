@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "nodemon server.js app/views/client npm run start"
   },
   "keywords": [
     "job",
@@ -13,6 +13,8 @@
   "author": "Jesús Barraza <barrazajesusarmando@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "antd": "^3.4.3",
+    "antd-init": "^2.0.6",
     "babel": "^5.8.23",
     "bcrypt": "^2.0.1",
     "bcrypt-nodejs": "0.0.3",
@@ -27,6 +29,7 @@
     "jsonwebtoken": "^8.2.1",
     "jwt-simple": "^0.5.1",
     "material-ui": "^0.20.0",
+    "materialize-css": "^1.0.0-beta",
     "mysql2": "^1.5.3",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",

@@ -3,6 +3,7 @@ var app = express()
 var session    = require('express-session')
 var bodyParser = require('body-parser')
 var passport = require('passport')
+var rootPath = __dirname
 
 var env = require('dotenv').load()
 
@@ -16,14 +17,10 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.set('port', 8080);
+app.set('port', 4000);
 app.set('view engine', 'jsx');
 app.set('views', './app/views');
-app.engine('jsx', require('express-react-views').createEngine({ transformViews: false }));
-
-require('babel/register')({
-    ignore: false
-});
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/', function(req, res) {
    //res.sendFile(__dirname + '/public/index.html');
