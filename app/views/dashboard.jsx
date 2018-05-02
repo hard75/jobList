@@ -1,3 +1,6 @@
+/**
+ * Importación de componentes
+ */
 import React from 'react';
 import GridJobs from './components/GridJobs';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -16,7 +19,16 @@ import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+
+/**
+ * Vista de dashboard solo disponible despues de logueo
+ */
 export default class Dashboard extends React.Component{
+    /**
+     * Construnctor
+     *  
+     * @param {*} props 
+     */
     constructor(props){
         super(props);
 

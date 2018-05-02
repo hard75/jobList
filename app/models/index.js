@@ -1,5 +1,7 @@
 "use strict";
- 
+/**
+ * Configuración de base de datos
+ */
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
@@ -8,9 +10,9 @@ var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db = {};
  
- 
-fs
-    .readdirSync(__dirname)
+//Creación de tablas en la base de datos con respecto al modelo
+
+fs  .readdirSync(__dirname)
     .filter(function(file) {
         return (file.indexOf(".") !== 0) && (file !== "index.js");
     })

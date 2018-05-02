@@ -1,8 +1,21 @@
+/**
+ * Importación de componentes
+ */
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
+/**
+ *  Componente hecho para formulario de creación y actualización de trabajos
+ */
 export default class FormAdd extends React.Component {
+
+    /**
+     * Construnctor
+     * Define los valores por defecto de el formulario
+     *  
+     * @param {*} props 
+     */
     constructor(props) {
         super(props);
         this.labelStyle = {

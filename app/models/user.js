@@ -1,3 +1,4 @@
+//Creación de modelo y estructura de Job
 module.exports = function(sequelize, Sequelize) {
  
     var User = sequelize.define('user', {

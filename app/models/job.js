@@ -1,3 +1,4 @@
+//Creación de modelo y estructura de Job
 module.exports = function(sequelize, Sequelize) {
     const User = require('./user.js')(sequelize, Sequelize);
     const Job = sequelize.define('job', {
@@ -20,6 +21,7 @@ module.exports = function(sequelize, Sequelize) {
                 type: Sequelize.ENUM('high', 'medium', 'low'),
                 defaultValue: 'low'
             },
+            
             user_id : {
                 type: Sequelize.INTEGER,
                 reference :{

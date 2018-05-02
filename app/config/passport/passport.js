@@ -1,14 +1,18 @@
+/*
+* Aquí passport maneja todo el sistema de logueo y registro de la aplicación
+*/
 var bCrypt = require('bcrypt');
 
 module.exports = function(passport, user) {
     var User = user;
     var LocalStrategy = require('passport-local').Strategy;
 
+    //SIGNUP
     passport.use('local-signup', new LocalStrategy(
         {
             usernameField: 'email',
             passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true
         },
         function(req, email, password, done) {
             var generateHash = function(password) {
@@ -48,13 +52,12 @@ module.exports = function(passport, user) {
         }
     ));
 
-    //LOCAL SIGNIN
+    //SIGNIN
     passport.use('local-signin', new LocalStrategy(
         {
-            // by default, local strategy uses username and password, we will override with email
             usernameField: 'email',
             passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true
         },
         function(req, email, password, done) {
             var User = user;
@@ -81,8 +84,6 @@ module.exports = function(passport, user) {
 
                 var userinfo = user.get();
                 return done(null, userinfo);
-
-
     
             }).catch(function(err) {
                 return done(null, false, {

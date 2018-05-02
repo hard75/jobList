@@ -1,14 +1,20 @@
-
 var Sequelize = require("sequelize");
+//Configuración de base de datos
 var env = process.env.NODE_ENV || "development";
 var config = require('../config/config.json')[env];
 var db = new Sequelize(config.database, config.username, config.password, config);
+//Obtener modelo de Job
 const Model = require('../models/job')(db, Sequelize);
 
-var authController = require('../controllers/authcontroller.js');
-
+/**
+ * Exporta todas las rutas referentes a Job
+ * 
+ * @param {*} router 
+ * @param {*} passport 
+ * @param {middleware} isLoggedIn 
+ */
 module.exports = function(router, passport, isLoggedIn) {
-
+    //ADD
     router.post('/job/add', isLoggedIn,function (req, res, next) {
         var userId = req.session.passport.user;
         var postData = {
@@ -27,7 +33,7 @@ module.exports = function(router, passport, isLoggedIn) {
             });
     });
 
-
+    //UPDATE
     router.post('/job/update', isLoggedIn,function (req, res, next) {
         var id = req.body.id;
         var putData = {
@@ -52,7 +58,7 @@ module.exports = function(router, passport, isLoggedIn) {
             });
     });
 
-
+    //DELETE
     router.post('/job/delete', isLoggedIn,function (req, res, next) {
 
         var id = req.body.id;

@@ -1,8 +1,8 @@
 var authController = require('../controllers/authcontroller.js');
-
-module.exports = function(app, passport) {
-    
-   
+/**
+ * Manejo de todas las rutas del sistema con middleware de logueo
+ */
+module.exports = function(app, passport) {  
     app.get('/signup', authController.signup);
     app.get('/signin', authController.signin);
     app.get('/dashboard',authController.dashboard);
@@ -27,6 +27,6 @@ module.exports = function(app, passport) {
             failureRedirect: '/signin'
         }
     )); 
-
+    //Inserta todas las rutas referentes a manejo de Jobs
     require('./routesJob.js')(app,passport, isLoggedIn)
 }

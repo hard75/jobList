@@ -1,8 +1,20 @@
+/**
+ * Importación de componentes
+ */
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
+/**
+ * Vista para el registro en el sistema
+ */
 export default class Signup extends React.Component{
+    /**
+     * Construnctor
+     * Define los estilos del formulario
+     *  
+     * @param {*} props 
+     */
     constructor(props) {
         super(props);
         this.labelStyle = {

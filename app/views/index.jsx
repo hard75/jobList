@@ -1,8 +1,14 @@
+/**
+ * Importación de componentes
+ */
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+/**
+ * La vista principal del programa con introducción
+ */
 export default class Login extends React.Component {
     
     render() {
@@ -11,13 +17,13 @@ export default class Login extends React.Component {
                 <Card>
                     <CardHeader/>
                     <CardMedia
-                    overlay={<CardTitle title="e-volution" />}
+                    overlay={<CardTitle title="Prueba React-Node" />}
                     >
                     </CardMedia>
-                    <CardTitle title="Bienvenidos" subtitle="Prueba técnica" />
+                    <CardTitle title="Bienvenidos" subtitle="Practica de react" />
                     <CardText>
-                        Esta es la prueba técnica para ser parte del equipo de evolution, aprendí un monton haciendola
-                        y aunque no fue tan fácil, estoy satisfecho con el resultado, espero que a ustedes les guste.
+                        Practica de de React-node con sequelize y passport. Este programa carga los componentes de react 
+                        desde Node.
                     </CardText>
                     <CardActions>
                     <FlatButton href="/signin" label="Sign In" />
