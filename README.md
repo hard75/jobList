@@ -5,4 +5,8 @@ usando:
 
 **Node-passport-express-sequelize-mysql**
 
-node server.js
+``` bash
+$ node install
+$ npm run dev
+```
+
