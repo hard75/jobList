@@ -6,7 +6,6 @@ usando:
 **Node-passport-express-sequelize-mysql**
 
 ``` bash
-$ node install
+$ npm install
 $ npm run dev
 ```
-
