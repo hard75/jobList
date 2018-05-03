@@ -3,11 +3,11 @@ var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 var config = require('../config/config.json')[env];
 var db = new Sequelize(config.database, config.username, config.password, config);
-//Obtener modelo de Job
-const Model = require('../models/job')(db, Sequelize);
+//Obtener modelo de Task
+const Model = require('../models/task')(db, Sequelize);
 
 /**
- * Exporta todas las rutas referentes a Job
+ * Exporta todas las rutas referentes a Task
  * 
  * @param {*} router 
  * @param {*} passport 
@@ -15,7 +15,7 @@ const Model = require('../models/job')(db, Sequelize);
  */
 module.exports = function(router, passport, isLoggedIn) {
     //ADD
-    router.post('/job/add', isLoggedIn,function (req, res, next) {
+    router.post('/task/add', isLoggedIn,function (req, res, next) {
         var userId = req.session.passport.user;
         var postData = {
             name: req.body.name,
@@ -34,7 +34,7 @@ module.exports = function(router, passport, isLoggedIn) {
     });
 
     //UPDATE
-    router.post('/job/update', isLoggedIn,function (req, res, next) {
+    router.post('/task/update', isLoggedIn,function (req, res, next) {
         var id = req.body.id;
         var putData = {
             name: req.body.name,
@@ -59,7 +59,7 @@ module.exports = function(router, passport, isLoggedIn) {
     });
 
     //DELETE
-    router.post('/job/delete', isLoggedIn,function (req, res, next) {
+    router.post('/task/delete', isLoggedIn,function (req, res, next) {
 
         var id = req.body.id;
 

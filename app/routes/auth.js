@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
     app.get('/dashboard',authController.dashboard);
     app.get('/logout',authController.logout);
-    app.post('/job/one', authController.findOne);
+    app.post('/task/one', authController.findOne);
     app.post('/signup', passport.authenticate('local-signup', {
             successRedirect: '/dashboard',
             failureRedirect: '/signup'
@@ -27,6 +27,6 @@ module.exports = function(app, passport) {
             failureRedirect: '/signin'
         }
     )); 
-    //Inserta todas las rutas referentes a manejo de Jobs
-    require('./routesJob.js')(app,passport, isLoggedIn)
+    //Inserta todas las rutas referentes a manejo de tasks
+    require('./routesTask.js')(app,passport, isLoggedIn)
 }

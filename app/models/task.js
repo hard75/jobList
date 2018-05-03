@@ -1,7 +1,7 @@
-//Creación de modelo y estructura de Job
+//Creación de modelo y estructura de task
 module.exports = function(sequelize, Sequelize) {
     const User = require('./user.js')(sequelize, Sequelize);
-    const Job = sequelize.define('job', {
+    const Task = sequelize.define('task', {
 
             id: {
                 autoIncrement: true,
@@ -32,6 +32,6 @@ module.exports = function(sequelize, Sequelize) {
         }
     );
 
-    return Job;
+    return Task;
  
 }

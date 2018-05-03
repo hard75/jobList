@@ -6,11 +6,11 @@ var env = process.env.NODE_ENV || "development";
 var config = require('../config/config.json')[env];
 var db = new Sequelize(config.database, config.username, config.password, config);
 
-// Obtiene modelo job en una variable para llamar a sus funciones.
-const Job = require('../models/job')(db, Sequelize);
+// Obtiene modelo task en una variable para llamar a sus funciones.
+const Task = require('../models/task')(db, Sequelize);
 
-//Variable para saber cuando un trabajo seleccionado y listo para mostrar en el update
-var oneJob = null;
+//Variable para saber cuando un tarea seleccionado y listo para mostrar en el update
+var oneTask = null;
 
 
 /**
@@ -34,18 +34,18 @@ exports.signin = function(req, res) {
 }
 
 /**
- *  Busca solo un Job
+ *  Busca solo un task
  * 
  * @param {*} req 
  * @param {*} res 
  */
 exports.findOne = function(req, res) {
-    Job.find({
+    Task.find({
         where: {
             id: req.body.id
         }
     }).then(result => {
-        oneJob = result;
+        oneTask = result;
         res.redirect('/dashboard');
     });  
 }
@@ -60,8 +60,8 @@ exports.findOne = function(req, res) {
 exports.dashboard = function(req, res) {
     var today = new Date().toISOString().slice(0,10);
 
-    //Se usa para contar el número de trabajos 
-    var countJobs = 0;
+    //Se usa para contar el número de tareas 
+    var countTasks = 0;
     //Controla las si las notificaciones aparecen o no
     var showNotification = null;
     var showUpdate =  {display:'block'};
@@ -69,11 +69,11 @@ exports.dashboard = function(req, res) {
     /**
      * 
      * Notificará solo de las tareas pendientes hoy
-     * cuenta el número de trabajos vs el número de trabajos actual,
+     * cuenta el número de tareas vs el número de tareas actual,
      * así se entera si hay nuevos
      * 
      */
-    Job.findAndCountAll({
+    Task.findAndCountAll({
         where: {
             user_id : req.session.passport.user,
             date : today
@@ -82,32 +82,32 @@ exports.dashboard = function(req, res) {
      .then(result => {
         if (result.count > 0) {
             showNotification = {display:'block'};
-            countJobs = result.count;
+            countTasks = result.count;
         }
      });
 
-    //Deja la variable one Job vacia cuando tiene un trabajo seleccionado
-    var jobUpdate = oneJob;
-    if (oneJob) {
-        oneJob = null;
+    //Deja la variable one task vacia cuando tiene un trabajo seleccionado
+    var taskUpdate = oneTask;
+    if (oneTask) {
+        oneTask = null;
     } else {
         showUpdate = null;
     }
     
 
-    //Muestra todos los trabajos y luego pasa a los parametros a la vista
-    Job.findAll({
+    //Muestra todos los tareas y luego pasa a los parametros a la vista
+    Task.findAll({
         where: {
             user_id : req.session.passport.user
         } 
     })
     .then(result => {
         res.render('dashboard', {
-            jobs : result,
-            job : jobUpdate,
+            tasks : result,
+            task : taskUpdate,
             showUpdate : showUpdate,
             showNotification : showNotification,
-            countJobs : countJobs
+            countTasks : countTasks
         });
     });
 }

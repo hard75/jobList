@@ -1,4 +1,4 @@
-# Job List
+# Task List
 
 Proyecto con node renderizando desde el servidor React.
 
@@ -7,4 +7,58 @@ Proyecto con node renderizando desde el servidor React.
 ``` bash
 $ npm install
 $ npm run dev
+```
+
+**Configuración**
+
+Agregar un archivo **/app/config/config.json** de el siguiente modo : 
+
+``` bash
+//config.json
+
+{
+
+    "development": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+
+        "dialect": "mysql"
+
+    },
+ 
+    "test": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
+        "dialect": "mysql"
+ 
+    },
+ 
+    "production": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
+        "dialect": "mysql"
+ 
+    }
+ 
+}
 ```

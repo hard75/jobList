@@ -16,10 +16,10 @@ import ContentArchive from 'material-ui/svg-icons/content/archive';
 
 
 /**
- * Grid donde se mostrarán todos los datos de los trabajos y un sección para las 
+ * Grid donde se mostrarán todos los datos de los tareas y un sección para las 
  * acciones eliminar y actualizar
  */
-export default class GridJobs extends React.Component {
+export default class GridTasks extends React.Component {
    
     /**
      * En el props se obtiene los datos mandados por node
@@ -30,7 +30,7 @@ export default class GridJobs extends React.Component {
             display : 'inline-block'
         };
 
-        if (this.props.jobs.length === 0) return <p>No hay trabajos disponibles</p>;
+        if (this.props.tasks.length === 0) return <p>No hay tareas disponibles</p>;
 
         return ( 
             <Table>
@@ -44,21 +44,21 @@ export default class GridJobs extends React.Component {
                 </TableHeader>
                 <TableBody>
                     {
-                        this.props.jobs.map(function (job){
+                        this.props.tasks.map(function (task){
                             return (
                                 <TableRow>
-                                    <TableRowColumn>{ job.dataValues.name }</TableRowColumn>
-                                    <TableRowColumn>{ job.dataValues.priority }</TableRowColumn>
-                                    <TableRowColumn>{ job.dataValues.date }</TableRowColumn>
+                                    <TableRowColumn>{ task.dataValues.name }</TableRowColumn>
+                                    <TableRowColumn>{ task.dataValues.priority }</TableRowColumn>
+                                    <TableRowColumn>{ task.dataValues.date }</TableRowColumn>
                                     <TableRowColumn>
-                                        <form  name="delete" style={formStyle} method="post" action="/job/delete">
-                                            <input name="id" type="text" style= {{display: 'none'}} value={ job.dataValues.id }/>
+                                        <form  name="delete" style={formStyle} method="post" action="/task/delete">
+                                            <input name="id" type="text" style= {{display: 'none'}} value={ task.dataValues.id }/>
                                             <FloatingActionButton type="submit" style={{marginRight: 20}}>
                                                 <ContentDeletesweep />
                                             </FloatingActionButton>
                                         </form>
-                                        <form  name="update" style={formStyle} method="post" action="/job/one">
-                                            <input name="id" type="text" style= {{display: 'none'}} value={ job.dataValues.id }/>
+                                        <form  name="update" style={formStyle} method="post" action="/task/one">
+                                            <input name="id" type="text" style= {{display: 'none'}} value={ task.dataValues.id }/>
                                             <FloatingActionButton type="submit" secondary={true} style={{marginRight: 20}}>
                                                 <ContentArchive />
                                             </FloatingActionButton>

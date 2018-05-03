@@ -2,7 +2,7 @@
  * Importación de componentes
  */
 import React from 'react';
-import GridJobs from './components/GridJobs';
+import GridTasks from './components/GridTasks';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormAdd from './components/FormAdd';
 import FormUpdate from './components/FormAdd';
@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component{
     constructor(props){
         super(props);
 
-        this.updateJob = {
+        this.updateTask = {
             id : null,
             name : '',
             priority : 'low',
@@ -47,20 +47,20 @@ export default class Dashboard extends React.Component{
                 <RaisedButton  style={{ marginTop : '10px'}} label="Log Out"  href="/logout" primary={true} style={this.style} />
                <Card>
                     <CardTitle style={{textAlign : 'center', marginTop : '50px'}} title="Añade tu nueva tarea"/>
-                    <FormAdd action={'/job/add'} job={this.updateJob}/>
+                    <FormAdd action={'/task/add'} task={this.updateTask}/>
                 </Card>
                 
                 <Divider />
                 <List style ={this.props.showNotification ? this.props.showNotification : {display : "none"}}>
-                    <ListItem primaryText= "¡Tienes tareas para hoy!" rightIcon={<Badge badgeContent={this.props.countJobs} primary={true}><NotificationsIcon /></Badge>} />
+                    <ListItem primaryText= "¡Tienes tareas para hoy!" rightIcon={<Badge badgeContent={this.props.countTasks} primary={true}><NotificationsIcon /></Badge>} />
                 </List>
                 <div style={ {marginLeft:'50px', marginRight:'50px'}}>
-                    <GridJobs jobs={ this.props.jobs }/>
+                    <GridTasks tasks={ this.props.tasks }/>
                 </div>
                
                <Card style={this.props.showUpdate ? this.props.showUpdate : {display:'none'}}>
                     <CardTitle style={{textAlign : 'center', marginTop : '50px'}} title="Actualizar tarea"/>
-                    <FormUpdate action = {'/job/update'} job={this.props.job ? this.props.job : this.updateJob}/>
+                    <FormUpdate action = {'/task/update'} task={this.props.task ? this.props.task : this.updateTask}/>
                 </Card>
             </MuiThemeProvider>
         );
